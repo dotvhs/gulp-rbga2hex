@@ -5,13 +5,16 @@ var PluginError = gutil.PluginError;
 var PLUGIN_NAME = "gulp-rgba2hex";
 
 function rgbaToHex(rgba) {
-	var color = rgba.splt(',');
-	return (color && color.length === 4) ? "#" +
-	  ("0" + parseInt((parseFloat(color[3]) * 255),10).toString(16)).slice(-2) +
-	  ("0" + parseInt(color[0],10).toString(16)).slice(-2) +
-	  ("0" + parseInt(color[1],10).toString(16)).slice(-2) +
-	  ("0" + parseInt(color[2],10).toString(16)).slice(-2) : '';
-	}
+	var color = rgba.splt(",");
+	return color && color.length === 4
+		? "#" +
+				("0" + parseInt(parseFloat(color[3]) * 255, 10).toString(16)).slice(
+					-2
+				) +
+				("0" + parseInt(color[0], 10).toString(16)).slice(-2) +
+				("0" + parseInt(color[1], 10).toString(16)).slice(-2) +
+				("0" + parseInt(color[2], 10).toString(16)).slice(-2)
+		: "";
 }
 
 var rgbaMatch = function(css) {
