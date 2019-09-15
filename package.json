@@ -1,0 +1,24 @@
+{
+  "name": "gulp-rgba2hex",
+  "version": "1.0.0",
+  "description": "rgba() to #AARRGGBB conversion - internal use",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dotvhs/gulp-rgba2hex.git"
+  },
+  "scripts": {},
+  "keywords": [
+    "gulp",
+    "css",
+    "hex",
+    "converter",
+    "hexadecimal"
+  ],
+  "author": "dotvhs",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "gulp-util": "^3.0.8",
+    "through2": "^2.0.3"
+  }
+}
