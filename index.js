@@ -5,7 +5,7 @@ var PluginError = gutil.PluginError;
 var PLUGIN_NAME = "gulp-rgba2hex";
 
 function rgbaToHex(rgba) {
-	var color = rgba.split(",");
+	var color = rgba.toString().split(",");
 	return color && color.length === 4
 		? "#" +
 				("0" + parseInt(parseFloat(color[3]) * 255, 10).toString(16)).slice(
