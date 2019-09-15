@@ -19,8 +19,7 @@ function rgbaToHex(rgba) {
 
 var rgbaMatch = function(css) {
 	return css.replace(/rgba\(.*?\)/g, function(match, $1) {
-		var match = "color: " + rgbaToHex($1);
-		return match;
+		return rgbaToHex($1);
 	});
 };
 
