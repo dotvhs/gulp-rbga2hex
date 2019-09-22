@@ -9,8 +9,12 @@ function rgbaToHex(rgba, options) {
 	var varAlpha = (
 		"0" + parseInt(parseFloat(color[3]) * 255, 10).toString(16)
 	).slice(-2);
-	var setARGB = !options.rgba && options.alpha ? varAlpha : "";
-	var setRGBA = options.rgba && options.alpha ? varAlpha : "";
+	var setARGB = !options.rgba ? varAlpha : "";
+	var setRGBA = options.rgba ? varAlpha : "";
+	if (options.removeAlpha) {
+		setARGB = "";
+		setRGBA = "";
+	}
 	return (
 		"#" +
 		setARGB +
@@ -24,7 +28,7 @@ function rgbaToHex(rgba, options) {
 function injectDefaultOptions(options) {
 	options = options || {};
 	options.rgba = options.rgba || false;
-	options.alpha = options.alpha || true;
+	options.removeAlpha = options.removeAlpha || false;
 	return options;
 }
 
@@ -35,7 +39,7 @@ var rgbaMatch = function(css, options) {
 };
 
 function gulpPrefixer(options) {
-	options = injectDefaultOptions(options);
+	// options = injectDefaultOptions(options);
 	var stream = through.obj(function(file, enc, cb) {
 		if (file.isStream()) {
 			this.emit(
