@@ -9,8 +9,8 @@ function rgbaToHex(rgba, options) {
 	var varAlpha = (
 		"0" + parseInt(parseFloat(color[3]) * 255, 10).toString(16)
 	).slice(-2);
-	var setARGB = !options.rgba ? varAlpha : "";
-	var setRGBA = options.rgba ? varAlpha : "";
+	var setARGB = !options.rgba && options.alpha ? varAlpha : "";
+	var setRGBA = options.rgba && options.alpha ? varAlpha : "";
 	return (
 		"#" +
 		setARGB +
@@ -24,6 +24,7 @@ function rgbaToHex(rgba, options) {
 function injectDefaultOptions(options) {
 	options = options || {};
 	options.rgba = options.rgba || false;
+	options.alpha = options.alpha || true;
 	return options;
 }
 
